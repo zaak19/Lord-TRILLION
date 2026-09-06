@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050505">
+
+    <meta name="description"
+          content="Trillion Software — technologie, logiciels, publications, motivation et livres.">
+
+    <title>Trillion Software</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" href="./hero.png">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     EN-TÊTE
+===================================================== -->
+
+<header class="hero">
+
+    <!-- Image CEO / Lord Trillion -->
+    <img
+        src="./hero.png"
+        alt="CEO — Lord Trillion"
+        class="hero-photo"
+    >
+
+    <div class="hero-shade"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="nav">
+
+        <div class="brand">
+
+            <strong>TRILLION</strong>
+
+            <span>SOFTWARE</span>
+
+        </div>
+
+
+        <!-- Bouton langue -->
+
+        <button
+            id="langBtn"
+            class="lang-btn"
+            type="button"
+        >
+            EN
+        </button>
+
+    </nav>
+
+
+    <!-- CONTENU EN-TÊTE -->
+
+    <div class="hero-content">
+
+        <p
+            class="eyebrow"
+            data-fr="TECHNOLOGIE • LOGICIEL • NUMÉRIQUE"
+            data-en="TECHNOLOGY • SOFTWARE • DIGITAL"
+        >
+            TECHNOLOGIE • LOGICIEL • NUMÉRIQUE
+        </p>
+
+
+        <h1
+            data-fr="Nous créons le logiciel de demain."
+            data-en="We build the software of tomorrow."
+        >
+            Nous créons le logiciel de demain.
+        </h1>
+
+
+        <p
+            data-fr="Bienvenue chez Trillion Software."
+            data-en="Welcome to Trillion Software."
+        >
+            Bienvenue chez Trillion Software.
+        </p>
+
+
+        <a
+            href="#publications"
+            class="pill light-pill"
+            data-fr="Découvrir"
+            data-en="Discover"
+        >
+            Découvrir
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTENU PRINCIPAL
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     IMAGE LORD TRILLION AU MILIEU
+===================================================== -->
+
+<section class="identity-section">
+
+    <div class="identity-card">
+
+        <img
+            src="./lord-trillion.png"
+            alt="Lord Trillion — The Pride of Kingdom"
+        >
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PUBLICATIONS
+===================================================== -->
+
+<section
+    id="publications"
+    class="section posts-section"
+>
+
+
+    <div class="section-head">
+
+        <p
+            class="eyebrow dark"
+            data-fr="PUBLICATIONS"
+            data-en="POSTS"
+        >
+            PUBLICATIONS
+        </p>
+
+
+        <h2
+            data-fr="Ce que nous partageons."
+            data-en="What we share."
+        >
+            Ce que nous partageons.
+        </h2>
+
+
+        <p
+            class="muted"
+            data-fr="Publie tes images, visuels et créations directement depuis cette page."
+            data-en="Publish your images, visuals and creations directly from this page."
+        >
+            Publie tes images, visuels et créations directement depuis cette page.
+        </p>
+
+    </div>
+
+
+
+    <!-- BOUTONS PUBLICATION -->
+
+    <div class="post-controls">
+
+
+        <label class="upload-btn">
+
+            <span
+                data-fr="＋ Ajouter une publication"
+                data-en="＋ Add a post"
+            >
+                ＋ Ajouter une publication
+            </span>
+
+
+            <input
+                id="postInput"
+                type="file"
+                accept="image/*"
+                multiple
+                hidden
+            >
+
+        </label>
+
+
+        <button
+            id="clearPosts"
+            class="secondary-btn"
+            type="button"
+            data-fr="Effacer mes publications"
+            data-en="Clear my posts"
+        >
+            Effacer mes publications
+        </button>
+
+    </div>
+
+
+    <!-- LES PUBLICATIONS APPARAISSENT ICI -->
+
+    <div
+        id="postsGrid"
+        class="posts-grid"
+    ></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DEUX BULLES
+===================================================== -->
+
+<section class="links-section">
+
+
+    <!-- BULLE MOTIVATION -->
+
+    <a
+        class="wide-pill"
+        href="#motivation"
+    >
+
+        <span
+            data-fr="Motivation"
+            data-en="Motivation"
+        >
+            Motivation
+        </span>
+
+        <span>→</span>
+
+    </a>
+
+
+
+    <!-- BULLE MES LIVRES -->
+
+    <a
+        class="wide-pill"
+        href="#books"
+    >
+
+        <span
+            data-fr="Mes livres"
+            data-en="My books"
+        >
+            Mes livres
+        </span>
+
+        <span>→</span>
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     MOTIVATION
+===================================================== -->
+
+<section
+    id="motivation"
+    class="simple-section"
+>
+
+    <p
+        class="eyebrow dark"
+        data-fr="MOTIVATION"
+        data-en="MOTIVATION"
+    >
+        MOTIVATION
+    </p>
+
+
+    <h2
+        data-fr="Pense grand. Construis. Avance."
+        data-en="Think big. Build. Move forward."
+    >
+        Pense grand. Construis. Avance.
+    </h2>
+
+</section>
+
+
+
+<!-- =====================================================
+     MES LIVRES
+===================================================== -->
+
+<section
+    id="books"
+    class="simple-section books-section"
+>
+
+    <p
+        class="eyebrow dark"
+        data-fr="MES LIVRES"
+        data-en="MY BOOKS"
+    >
+        MES LIVRES
+    </p>
+
+
+    <h2
+        data-fr="Une bibliothèque qui arrive."
+        data-en="A library coming soon."
+    >
+        Une bibliothèque qui arrive.
+    </h2>
+
+</section>
+
+
+
+<!-- =====================================================
+     RÉSEAUX SOCIAUX
+===================================================== -->
+
+<section class="social-section">
+
+
+    <p
+        class="eyebrow dark"
+        data-fr="RÉSEAUX SOCIAUX"
+        data-en="SOCIAL MEDIA"
+    >
+        RÉSEAUX SOCIAUX
+    </p>
+
+
+    <h2
+        data-fr="Retrouvez Trillion Software"
+        data-en="Find Trillion Software"
+    >
+        Retrouvez Trillion Software
+    </h2>
+
+
+
+    <div class="social-grid">
+
+
+        <!-- FACEBOOK -->
+
+        <a
+            href="https://facebook.com/"
+            target="_blank"
+            rel="noopener"
+            class="social-card facebook"
+        >
+
+            <b>f</b>
+
+            <span>Facebook</span>
+
+            <small>Trillion Software</small>
+
+        </a>
+
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noopener"
+            class="social-card instagram"
+        >
+
+            <b>◎</b>
+
+            <span>Instagram</span>
+
+            <small>Trillion Software</small>
+
+        </a>
+
+
+
+        <!-- TWITTER / X -->
+
+        <a
+            href="https://x.com/"
+            target="_blank"
+            rel="noopener"
+            class="social-card x"
+        >
+
+            <b>𝕏</b>
+
+            <span>Twitter / X</span>
+
+            <small>Trillion Software</small>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     PIED DE PAGE
+===================================================== -->
+
+<footer>
+
+    <strong>
+        TRILLION SOFTWARE
+    </strong>
+
+
+    <span>
+        © <span id="year"></span>
+    </span>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
