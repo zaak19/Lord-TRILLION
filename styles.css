@@ -1,0 +1,751 @@
+/* =====================================================
+   CONFIGURATION GÉNÉRALE
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Inter, Arial, sans-serif;
+
+    background: #050505;
+
+    color: #ffffff;
+}
+
+
+a {
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+
+
+/* =====================================================
+   EN-TÊTE
+===================================================== */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+.hero-photo {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+.hero-shade {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.35),
+            rgba(0,0,0,.45) 45%,
+            rgba(0,0,0,.94)
+        );
+}
+
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav {
+
+    position: absolute;
+
+    z-index: 3;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6vw;
+}
+
+
+.brand {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+
+.brand strong {
+
+    font-size: 22px;
+
+    letter-spacing: 4px;
+}
+
+
+.brand span {
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+
+    margin-top: 7px;
+}
+
+
+.lang-btn {
+
+    background: rgba(0,0,0,.35);
+
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,.55);
+
+    border-radius: 999px;
+
+    padding: 10px 17px;
+
+    cursor: pointer;
+}
+
+
+
+/* =====================================================
+   CONTENU HERO
+===================================================== */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding:
+        0
+        8vw
+        10vh;
+
+    max-width: 1000px;
+}
+
+
+.eyebrow {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: 700;
+
+    margin-bottom: 18px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            88px
+        );
+
+    line-height: .98;
+
+    max-width: 850px;
+}
+
+
+.hero-content > p:not(.eyebrow) {
+
+    font-size: 18px;
+
+    margin-top: 24px;
+
+    color: #ddd;
+}
+
+
+
+/* =====================================================
+   BOUTON
+===================================================== */
+
+.pill {
+
+    display: inline-flex;
+
+    width: max-content;
+
+    margin-top: 32px;
+
+    padding: 13px 24px;
+
+    border-radius: 999px;
+}
+
+
+.light-pill {
+
+    background: #f2eee6;
+
+    color: #080808;
+}
+
+
+
+/* =====================================================
+   IMAGE DU MILIEU
+===================================================== */
+
+.identity-section {
+
+    background: #050505;
+
+    padding:
+        12vw
+        7vw;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.identity-card {
+
+    width: min(
+        700px,
+        100%
+    );
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 90px
+        rgba(0,0,0,.65);
+}
+
+
+.identity-card img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+}
+
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section,
+.simple-section,
+.social-section {
+
+    padding:
+        110px
+        7vw;
+}
+
+
+.posts-section,
+.social-section {
+
+    background: #f4f1eb;
+
+    color: #080808;
+}
+
+
+.section-head {
+
+    max-width: 850px;
+}
+
+
+.eyebrow.dark {
+
+    color: #666;
+}
+
+
+.section h2,
+.simple-section h2,
+.social-section h2 {
+
+    font-size:
+        clamp(
+            36px,
+            5vw,
+            64px
+        );
+
+    line-height: 1.02;
+}
+
+
+.muted {
+
+    color: #666;
+
+    line-height: 1.7;
+
+    margin-top: 20px;
+
+    max-width: 700px;
+}
+
+
+
+/* =====================================================
+   PUBLICATIONS
+===================================================== */
+
+.post-controls {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin:
+        40px
+        0
+        35px;
+}
+
+
+.upload-btn,
+.secondary-btn {
+
+    border:
+        1px solid #111;
+
+    border-radius: 999px;
+
+    padding:
+        13px
+        20px;
+
+    cursor: pointer;
+
+    background: #111;
+
+    color: #fff;
+}
+
+
+.secondary-btn {
+
+    background: transparent;
+
+    color: #111;
+}
+
+
+.posts-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 20px;
+}
+
+
+.post {
+
+    background: #fff;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.08);
+}
+
+
+.post img {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+}
+
+
+.post-caption {
+
+    padding: 14px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+
+/* =====================================================
+   BULLES MOTIVATION / LIVRES
+===================================================== */
+
+.links-section {
+
+    background: #050505;
+
+    padding:
+        70px
+        7vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+.wide-pill {
+
+    background: #f1eee7;
+
+    color: #050505;
+
+    border-radius: 999px;
+
+    padding:
+        19px
+        26px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+
+.wide-pill:hover {
+
+    transform:
+        translateX(6px);
+}
+
+
+
+/* =====================================================
+   MOTIVATION
+===================================================== */
+
+.simple-section {
+
+    background: #fff;
+
+    color: #080808;
+
+    text-align: center;
+}
+
+
+.simple-section h2 {
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.books-section {
+
+    background: #e9e5dc;
+}
+
+
+
+/* =====================================================
+   RÉSEAUX SOCIAUX
+===================================================== */
+
+.social-section {
+
+    text-align: center;
+}
+
+
+.social-grid {
+
+    max-width: 900px;
+
+    margin:
+        50px
+        auto
+        0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 16px;
+}
+
+
+.social-card {
+
+    background: #fff;
+
+    border-radius: 22px;
+
+    padding: 28px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0,0,0,.08);
+
+    transition: .25s;
+}
+
+
+.social-card:hover {
+
+    transform:
+        translateY(-6px);
+}
+
+
+.social-card b {
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 16px;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #111;
+
+    color: #fff;
+
+    font-size: 28px;
+}
+
+
+.social-card.facebook b {
+
+    background: #1877f2;
+}
+
+
+.social-card.instagram b {
+
+    background:
+        linear-gradient(
+            45deg,
+            #feda75,
+            #fa7e1e,
+            #d62976,
+            #962fbf,
+            #4f5bd5
+        );
+}
+
+
+.social-card.x b {
+
+    background: #000;
+}
+
+
+.social-card span {
+
+    font-weight: 700;
+}
+
+
+.social-card small {
+
+    color: #777;
+}
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding:
+        45px
+        7vw;
+
+    background: #000;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #777;
+}
+
+
+footer strong {
+
+    color: #fff;
+
+    letter-spacing: 3px;
+}
+
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .hero-photo {
+
+        object-position: center;
+    }
+
+
+    .hero-content {
+
+        padding:
+            0
+            6vw
+            8vh;
+    }
+
+
+    .posts-grid,
+    .social-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .section,
+    .simple-section,
+    .social-section {
+
+        padding:
+            85px
+            6vw;
+    }
+
+
+    .links-section {
+
+        padding:
+            55px
+            6vw;
+    }
+
+
+    footer {
+
+        padding:
+            35px
+            6vw;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+
+}
