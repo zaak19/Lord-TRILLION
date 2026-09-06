@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#050505">
+
+    <meta name="description"
+          content="Lord Trillion — site personnel">
+
+    <title>Lord Trillion</title>
+
+    <link rel="icon" href="./hero.png">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100svh;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .hero-photo {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center center;
+
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.15) 0%,
+                    rgba(0,0,0,0.10) 40%,
+                    rgba(0,0,0,0.80) 100%
+                );
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 10;
+
+            height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6vw;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .logo-main {
+            font-size: px;
+            font-weight: 800;
+            letter-spacing: 5px;
+        }
+
+        .logo-sub {
+            font-size: 8px;
+            letter-spacing: 5px;
+            margin-top: 5px;
+            opacity: .65;
+        }
+
+        .language {
+            border: 1px solid rgba(255,255,255,.5);
+
+            background: rgba(0,0,0,.35);
+
+            color: white;
+
+            border-radius: 50px;
+
+            padding: 10px 16px;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(10px);
+        }
+
+        /* HERO TEXT */
+
+        .hero-content {
+            position: relative;
+
+            z-index: 5;
+
+            min-height: 100svh;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: flex-end;
+
+            padding:
+                0
+                7vw
+                10vh;
+
+            max-width: 1050px;
+        }
+
+        .small-title {
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+            color: #eee;
+        }
+
+        .hero-title {
+            font-size: clamp(42px, 7vw, 90px);
+
+            line-height: .95;
+
+            font-weight: 800;
+
+            max-width: 900px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+
+            color: #ddd;
+
+            margin-top: 24px;
+
+            max-width: 600px;
+
+            line-height: 1.6;
+        }
+
+        .hero-button {
+            display: inline-flex;
+
+            width: fit-content;
+
+            margin-top: 30px;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            background: #f1eee7;
+
+            color: #050505;
+
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* IMAGE LORD TRILLION */
+
+        .identity {
+            background: #050505;
+
+            padding:
+                110px
+                7vw;
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+        .identity-image {
+            width: min(720px, 100%);
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,.7);
+        }
+
+        .identity-image img {
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+        }
+
+        /* SECTIONS */
+
+        .light-section {
+            background: #f1eee7;
+
+            color: #080808;
+
+            padding:
+                110px
+                7vw;
+        }
+
+        .section-label {
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            font-weight: 700;
+
+            color: #777;
+
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(38px, 5vw, 68px);
+
+            line-height: 1;
+
+            max-width: 900px;
+        }
+
+        .section-text {
+            margin-top: 22px;
+
+            max-width: 700px;
+
+            color: #666;
+
+            line-height: 1.7;
+        }
+
+        /* PUBLICATIONS */
+
+        .posts {
+            background: #f1eee7;
+
+            color: #080808;
+
+            padding:
+                110px
+                7vw;
+        }
+
+        .post-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin:
+                35px
+                0;
+        }
+
+        .upload-button,
+        .clear-button {
+            border: 1px solid #111;
+
+            border-radius: 50px;
+
+            padding: 14px px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+        }
+
+        .upload-button {
+            background: #080808;
+
+            color: white;
+
+            display: inline-flex;
+
+            align-items: center;
+        }
+
+        .clear-button {
+            background: transparent;
+
+            color: #080808;
+        }
+
+        .posts-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .post-card {
+            background: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,.08);
+        }
+
+        .post-card img {
+            display: block;
+
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            object-fit: cover;
+        }
+
+        .post-info {
+            padding: 15px;
+
+            font-size: 12px;
+
+            color: #777;
+        }
+
+        /* BULLES */
+
+        .menu-section {
+            background: #050505;
+
+            padding:
+                70px
+                7vw;
+        }
+
+        .menu-pill {
+            width: 100%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            background: #f1eee7;
+
+            color: #050505;
+
+            padding: px 27px;
+
+            border-radius: 100px;
+
+            margin-bottom: 15px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .menu-pill:hover {
+            transform: translateX(6px);
+        }
+
+        /* MOTIVATION */
+
+        .motivation {
+            background: white;
+
+            color: #050505;
+
+            padding:
+                120px
+                7vw;
+
+            text-align: center;
+        }
+
+        .motivation .section-title {
+            margin: auto;
+        }
+
+        .quote-list {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            display: grid;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .quote {
+            background: #f1eee7;
+            color: #050505;
+            border-radius: 18px;
+            padding: 18px 22px;
+            line-height: 1.65;
+        }
+
+        .editor {
+            display: none;
+            max-width: 1000px;
+            margin: 30px auto 0;
+            background: #f1eee7;
+            color: #080808;
+            border-radius: 25px;
+            padding: 25px;
+            text-align: left;
+        }
+
+        .editor.open {
+            display: block;
+        }
+
+        .editor textarea {
+            width: 100%;
+            min-height: 110px;
+            margin: 8px 0 18px;
+            padding: 14px;
+            border: 1px solid #aaa;
+            border-radius: 15px;
+            resize: vertical;
+            color: #080808;
+            background: white;
+        }
+
+        .editor small {
+            display: block;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        .editor-save {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .book-grid {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .book-card {
+            background: #f7f4ed;
+            border-radius: 25px;
+            padding: 30px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .book-stack {
+            position: relative;
+            width: 110px;
+            height: 90px;
+            margin: 5px auto 10px;
+        }
+
+        .book-shape {
+            position: absolute;
+            left: 10px;
+            width: 90px;
+            height: 25px;
+            border: 2px solid #111;
+            border-radius: 5px;
+            background: #fff;
+        }
+
+        .book-shape:nth-child(1) {
+            bottom: 8px;
+            transform: rotate(-5deg);
+        }
+
+        .book-shape:nth-child(2) {
+            bottom: 32px;
+            transform: rotate(4deg);
+        }
+
+        .book-shape:nth-child(3) {
+            bottom: 56px;
+            transform: rotate(-3deg);
+        }
+
+        .spirituality {
+            background: #111;
+            color: white;
+        }
+
+        .spirituality .section-label {
+            color: #999;
+        }
+
+        .spirituality .section-text {
+            color: #aaa;
+        }
+
+        .spirituality .quote {
+            background: #222;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        @media (max-width: 800px) {
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LIVRES */
+
+        .books {
+            background: #e5e0d6;
+
+            color: #050505;
+
+            padding:
+                120px
+                7vw;
+
+            text-align: center;
+        }
+
+        .books .section-title {
+            margin: auto;
+        }
+
+        /* RÉSEAUX SOCIAUX */
+
+        .social {
+            background: #f1eee7;
+
+            color: #050505;
+
+            padding:
+                110px
+                7vw;
+
+            text-align: center;
+        }
+
+        .social-grid {
+            max-width: 1100px;
+
+            margin:
+                45px
+                auto
+                0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .social-card {
+            background: white;
+
+            border-radius: 25px;
+
+            padding: 30px 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 9px;
+
+            box-shadow:
+                0 12px 40px rgba(0,0,0,.08);
+
+            transition: .25s;
+        }
+
+        .social-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+
+            border-radius: 18px;
+
+            display: grid;
+
+            place-items: center;
+
+            background: #050505;
+
+            color: white;
+
+            font-size: 27px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+        }
+
+        .facebook .social-icon {
+            background: #1877f2;
+        }
+
+        .instagram .social-icon {
+            background:
+                linear-gradient(
+                    45deg,
+                    #feda75,
+                    #fa7e1e,
+                    #d62976,
+                    #962fbf,
+                    #4f5bd5
+                );
+        }
+
+        .twitter .social-icon {
+            background: #000;
+        }
+
+        .tiktok .social-icon {
+            background: #000;
+        }
+
+        .social-name {
+            font-weight: 800;
+
+            font-size: 17px;
+        }
+
+        .social-description {
+            color: #777;
+
+            font-size: 12px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: #000;
+
+            color: #777;
+
+            padding:
+                45px
+                7vw;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .footer strong {
+            color: white;
+
+            letter-spacing: 3px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 0 5vw;
+            }
+
+            .hero-content {
+                padding:
+                    0
+                    6vw
+                    8vh;
+            }
+
+            .hero-title {
+                font-size:
+                    clamp(
+                        40px,
+                        12vw,
+                        65px
+                    );
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .identity,
+            .posts,
+            .light-section,
+            .motivation,
+            .books,
+            .social {
+                padding:
+                    80px
+                    6vw;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .menu-section {
+                padding:
+                    55px
+                    6vw;
+            }
+
+            .menu-pill {
+                font-size: 16px;
+
+                padding:
+                    18px
+                    px;
+            }
+
+            .footer {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="hero">
+
+    <img
+        src="./hero.png"
+        alt="Lord Trillion"
+        class="hero-photo"
+    >
+
+    <div class="hero-overlay"></div>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <span class="logo-main">
+                LORD TRILLION
+            </span>
+
+
+        </div>
+
+        <button
+            class="language"
+            id="languageButton"
+        >
+            EN
+        </button>
+
+    </nav>
+
+    <div class="hero-content">
+
+        <h1
+            class="hero-title"
+            data-fr="Pense grand. Construis ton royaume."
+            data-en="Think big. Build your kingdom."
+        >
+            Pense grand. Construis ton royaume.
+        </h1>
+
+        <p
+            class="hero-description"
+            data-fr="Bienvenue sur mon espace personnel."
+            data-en="Welcome to my personal space."
+        >
+            Bienvenue sur mon espace personnel.
+        </p>
+
+        <a
+            href="#publications"
+            class="hero-button"
+            data-fr="Découvrir"
+            data-en="Discover"
+        >
+            Découvrir
+        </a>
+
+    </div>
+
+</header>
+
+<section class="identity">
+
+    <div class="identity-image">
+
+        <img
+            src="./lord-trillion.png"
+            alt="Lord Trillion — The Pride of Kingdom"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PUBLICATIONS
+===================================================== -->
+
+<section
+    class="posts"
+    id="publications"
+>
+
+    <div
+        class="section-label"
+        data-fr="PUBLICATIONS"
+        data-en="POSTS"
+    >
+        PUBLICATIONS
+    </div>
+
+
+    <h2
+        class="section-title"
+        data-fr="Mes publications."
+        data-en="My posts."
+    >
+        Mes publications.
+    </h2>
+
+
+    <p
+        class="section-text"
+        data-fr="Un espace pour partager mes créations, mes images et mes publications."
+        data-en="A space to share my creations, images and posts."
+    >
+        Un espace pour partager mes créations,
+        mes images et mes publications.
+    </p>
+
+
+    <div class="post-actions">
+
+        <label class="upload-button">
+
+            <span
+                data-fr="＋ Ajouter une publication"
+                data-en="＋ Add a post"
+            >
+                ＋ Ajouter une publication
+            </span>
+
+
+            <input
+                id="postInput"
+                type="file"
+                accept="image/*"
+                multiple
+                hidden
+            >
+
+        </label>
+
+
+        <button
+            class="clear-button"
+            id="clearPosts"
+            data-fr="Effacer mes publications"
+            data-en="Clear my posts"
+        >
+            Effacer mes publications
+        </button>
+
+    </div>
+
+
+    <div
+        class="posts-grid"
+        id="postsGrid"
+    ></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<section class="menu-section">
+
+
+    <a
+        href="#motivation"
+        class="menu-pill"
+    >
+
+        <span
+            data-fr="Motivation"
+            data-en="Motivation"
+        >
+            Motivation
+        </span>
+
+        <span>
+            →
+        </span>
+
+    </a>
+
+
+    <a
+        href="#livres"
+        class="menu-pill"
+    >
+
+        <span>
+            Mes livres
+        </span>
+
+        <span>→</span>
+
+    </a>
+
+    <a
+        href="#spiritualite"
+        class="menu-pill"
+    >
+
+        <span>
+            Spiritualité profonde
+        </span>
+
+        <span>→</span>
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     MOTIVATION
+===================================================== -->
+
+<section
+    class="motivation"
+    id="motivation"
+>
+
+    <div class="section-label">
+        MOTIVATION
+    </div>
+
+    <h2 class="section-title">
+        Mes motivations.
+    </h2>
+
+    <p class="section-text" style="margin:22px auto 0;">
+        Jusqu'à 15 motivations. Chaque entrée peut contenir jusqu'à 20 phrases.
+    </p>
+
+    <div class="post-actions" style="justify-content:center;">
+        <button
+            class="upload-button"
+            type="button"
+            onclick="openAdmin('motivation')"
+        >
+            Ajouter / modifier mes motivations
+        </button>
+    </div>
+
+    <div class="quote-list" id="motivationList"></div>
+
+    <div class="editor" id="motivationEditor"></div>
+
+</section>
+
+
+<!-- =====================================================
+     LIVRES
+===================================================== -->
+
+<section
+    class="books"
+    id="livres"
+>
+
+    <div class="section-label">
+        MES LIVRES
+    </div>
+
+    <h2 class="section-title">
+        Mes livres.
+    </h2>
+
+    <p
+        class="section-text"
+        style="margin-left:auto;margin-right:auto;"
+    >
+        Trois livres, présentés discrètement comme une petite bibliothèque.
+        Chaque carte pourra ensuite recevoir son véritable lien d'achat.
+    </p>
+
+    <div class="book-grid">
+
+        <article class="book-card">
+            <div class="book-stack">
+                <span class="book-shape"></span>
+                <span class="book-shape"></span>
+                <span class="book-shape"></span>
+            </div>
+            <h3>Livre 1</h3>
+            <a class="upload-button" href="#" onclick="return false;">Acheter</a>
+        </article>
+
+        <article class="book-card">
+            <div class="book-stack">
+                <span class="book-shape"></span>
+                <span class="book-shape"></span>
+                <span class="book-shape"></span>
+            </div>
+            <h3>Livre 2</h3>
+            <a class="upload-button" href="#" onclick="return false;">Acheter</a>
+        </article>
+
+        <article class="book-card">
+            <div class="book-stack">
+                <span class="book-shape"></span>
+                <span class="book-shape"></span>
+                <span class="book-shape"></span>
+            </div>
+            <h3>Livre 3</h3>
+            <a class="upload-button" href="#" onclick="return false;">Acheter</a>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SPIRITUALITÉ PROFONDE
+===================================================== -->
+
+<section
+    class="spirituality"
+    id="spiritualite"
+>
+
+    <div class="section-label">
+        SPIRITUALITÉ PROFONDE
+    </div>
+
+    <h2 class="section-title">
+        Spiritualité profonde.
+    </h2>
+
+    <p class="section-text" style="margin:22px auto 0;">
+        Jusqu'à 15 entrées. Chaque entrée peut contenir jusqu'à 20 phrases.
+    </p>
+
+    <div class="post-actions" style="justify-content:center;">
+        <button
+            class="upload-button"
+            type="button"
+            onclick="openAdmin('spirituality')"
+        >
+            Ajouter / modifier
+        </button>
+    </div>
+
+    <div class="quote-list" id="spiritualityList"></div>
+
+    <div class="editor" id="spiritualityEditor"></div>
+
+</section>
+
+
+<!-- =====================================================
+     RÉSEAUX SOCIAUX
+===================================================== -->
+
+<section class="social">
+
+    <div
+        class="section-label"
+        data-fr="RÉSEAUX SOCIAUX"
+        data-en="SOCIAL MEDIA"
+    >
+        RÉSEAUX SOCIAUX
+    </div>
+
+
+    <h2
+        class="section-title"
+        style="margin:auto;"
+        data-fr="Retrouvez-moi."
+        data-en="Find me."
+    >
+        Retrouvez-moi.
+    </h2>
+
+
+    <div class="social-grid">
+
+
+        <!-- FACEBOOK -->
+
+        <a
+            href="https://www.facebook.com/share/18724U8nAX/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card facebook"
+        >
+
+            <div class="social-icon">
+                f
+            </div>
+
+
+            <div class="social-name">
+                Facebook
+            </div>
+
+
+            <div
+                class="social-description"
+                data-fr="Mon espace Facebook"
+                data-en="My Facebook space"
+            >
+                Mon espace Facebook
+            </div>
+
+        </a>
+
+
+        <!-- TIKTOK -->
+
+        <a
+            href="https://www.tiktok.com/@lord.trillion01?_r=1&_t=ZS-99VoqivY7Sn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card tiktok"
+        >
+
+            <div class="social-icon">
+                ♪
+            </div>
+
+
+            <div class="social-name">
+                TikTok
+            </div>
+
+
+            <div
+                class="social-description"
+                data-fr="Mon espace TikTok"
+                data-en="My TikTok space"
+            >
+                Mon espace TikTok
+            </div>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            href="https://www.instagram.com/lord.trillion01?stkn=MXZqb29pb3ZvNnZsYw=="
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card instagram"
+        >
+
+            <div class="social-icon">
+                ◎
+            </div>
+
+
+            <div class="social-name">
+                Instagram
+            </div>
+
+
+            <div
+                class="social-description"
+                data-fr="Mon espace Instagram"
+                data-en="My Instagram space"
+            >
+                Mon espace Instagram
+            </div>
+
+        </a>
+
+
+        <!-- TWITTER / X -->
+
+        <a
+            href="https://x.com/lord_trillion"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card twitter"
+        >
+
+            <div class="social-icon">
+                𝕏
+            </div>
+
+
+            <div class="social-name">
+                Twitter / X
+            </div>
+
+
+            <div
+                class="social-description"
+                data-fr="Mon espace Twitter"
+                data-en="My Twitter space"
+            >
+                Mon espace Twitter
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <strong>
+        LORD TRILLION
+    </strong>
+
+    <span>
+        © <span id="year"></span>
+    </span>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   LANGUE FR / EN
+===================================================== */
+
+const languageButton =
+    document.getElementById(
+        "languageButton"
+    );
+
+let currentLanguage = "fr";
+
+
+languageButton.addEventListener(
+    "click",
+    function () {
+
+        currentLanguage =
+            currentLanguage === "fr"
+                ? "en"
+                : "fr";
+
+
+        document
+            .querySelectorAll("[data-fr]")
+            .forEach(
+                function (element) {
+
+                    element.textContent =
+                        element.getAttribute(
+                            "data-" + currentLanguage
+                        );
+
+                }
+            );
+
+
+        languageButton.textContent =
+            currentLanguage === "fr"
+                ? "EN"
+                : "FR";
+
+    }
+);
+
+
+
+/* =====================================================
+   ANNÉE AUTOMATIQUE
+===================================================== */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+
+/* =====================================================
+   SYSTÈME DE PUBLICATIONS
+===================================================== */
+
+const postInput =
+    document.getElementById(
+        "postInput"
+    );
+
+const postsGrid =
+    document.getElementById(
+        "postsGrid"
+    );
+
+const clearPosts =
+    document.getElementById(
+        "clearPosts"
+    );
+
+
+const STORAGE_KEY =
+    "lord-trillion-personal-posts";
+
+
+
+/* Récupérer les publications */
+
+function getPosts() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                STORAGE_KEY
+            ) || "[]"
+        );
+
+    } catch {
+
+        return [];
+
+    }
+
+}
+
+
+
+/* Sauvegarder les publications */
+
+function savePosts(posts) {
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(posts)
+    );
+
+}
+
+
+
+/* Afficher les publications */
+
+function displayPosts() {
+
+    postsGrid.innerHTML = "";
+
+    const posts =
+        getPosts();
+
+
+    posts.forEach(
+        function (image, index) {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "post-card";
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                image;
+
+
+            img.alt =
+                "Publication personnelle";
+
+
+            const info =
+                document.createElement(
+                    "div"
+                );
+
+
+            info.className =
+                "post-info";
+
+
+            info.textContent =
+                "Publication " +
+                (index + 1);
+
+
+            card.appendChild(
+                img
+            );
+
+
+            card.appendChild(
+                info
+            );
+
+
+            postsGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   AJOUTER UNE PUBLICATION
+===================================================== */
+
+postInput.addEventListener(
+    "change",
+    function () {
+
+        const files =
+            Array.from(
+                postInput.files
+            );
+
+
+        if (!files.length) {
+            return;
+        }
+
+
+        const posts =
+            getPosts();
+
+
+        files.forEach(
+            function (file) {
+
+                if (
+                    !file.type.startsWith(
+                        "image/"
+                    )
+                ) {
+                    return;
+                }
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload =
+                    function (event) {
+
+                        posts.push(
+                            event.target.result
+                        );
+
+
+                        savePosts(
+                            posts
+                        );
+
+
+                        displayPosts();
+
+                    };
+
+
+                reader.readAsDataURL(
+                    file
+                );
+
+            }
+        );
+
+
+        postInput.value = "";
+
+    }
+);
+
+
+
+/* =====================================================
+   EFFACER LES PUBLICATIONS
+===================================================== */
+
+clearPosts.addEventListener(
+    "click",
+    function () {
+
+        const confirmation =
+            currentLanguage === "fr"
+                ? "Voulez-vous supprimer toutes vos publications sur cet appareil ?"
+                : "Do you want to delete all your posts on this device?";
+
+
+        if (
+            window.confirm(
+                confirmation
+            )
+        ) {
+
+            localStorage.removeItem(
+                STORAGE_KEY
+            );
+
+
+            displayPosts();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   AFFICHAGE INITIAL
+===================================================== */
+
+displayPosts();
+
+
+/* =====================================================
+   MOTIVATIONS + SPIRITUALITÉ
+   15 entrées maximum / 20 phrases conseillées par entrée
+===================================================== */
+
+const ADMIN_PASSWORD = "CHANGE-MOI";
+
+const MOTIVATION_KEY = "lord-trillion-motivations";
+const SPIRITUALITY_KEY = "lord-trillion-spirituality";
+
+let adminTarget = null;
+
+function loadItems(key) {
+    try {
+        return JSON.parse(localStorage.getItem(key) || "[]");
+    } catch {
+        return [];
+    }
+}
+
+function saveItems(key, items) {
+    localStorage.setItem(key, JSON.stringify(items));
+}
+
+function openAdmin(type) {
+    adminTarget = type;
+
+    const password = window.prompt(
+        "Mot de passe administrateur :"
+    );
+
+    if (password !== ADMIN_PASSWORD) {
+        window.alert("Accès refusé.");
+        return;
+    }
+
+    renderEditor(type);
+}
+
+function renderEditor(type) {
+
+    const isMotivation = type === "motivation";
+    const key = isMotivation
+        ? MOTIVATION_KEY
+        : SPIRITUALITY_KEY;
+
+    const box = document.getElementById(
+        isMotivation
+            ? "motivationEditor"
+            : "spiritualityEditor"
+    );
+
+    const items = loadItems(key);
+
+    box.innerHTML = "";
+
+    const title = document.createElement("h3");
+    title.textContent = isMotivation
+        ? "Modifier mes motivations"
+        : "Modifier ma spiritualité profonde";
+
+    box.appendChild(title);
+
+    for (let i = 0; i < 15; i++) {
+
+        const label = document.createElement("label");
+        label.textContent = "Entrée " + (i + 1);
+
+        const small = document.createElement("small");
+        small.textContent =
+            "Jusqu'à 20 phrases dans cette entrée.";
+
+        const textarea = document.createElement("textarea");
+        textarea.value = items[i] || "";
+        textarea.placeholder =
+            "Écris ici tes phrases...";
+
+        textarea.dataset.index = i;
+
+        box.appendChild(label);
+        box.appendChild(small);
+        box.appendChild(textarea);
+    }
+
+    const row = document.createElement("div");
+    row.className = "editor-save";
+
+    const saveButton = document.createElement("button");
+    saveButton.className = "upload-button";
+    saveButton.type = "button";
+    saveButton.textContent = "Enregistrer";
+
+    saveButton.onclick = function () {
+
+        const values = Array.from(
+            box.querySelectorAll("textarea")
+        ).map(function (textarea) {
+            return textarea.value.trim();
+        });
+
+        saveItems(key, values);
+
+        box.classList.remove("open");
+
+        renderItems(type);
+    };
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "clear-button";
+    closeButton.type = "button";
+    closeButton.textContent = "Fermer";
+
+    closeButton.onclick = function () {
+        box.classList.remove("open");
+    };
+
+    row.appendChild(saveButton);
+    row.appendChild(closeButton);
+    box.appendChild(row);
+
+    box.classList.add("open");
+}
+
+function renderItems(type) {
+
+    const isMotivation = type === "motivation";
+
+    const key = isMotivation
+        ? MOTIVATION_KEY
+        : SPIRITUALITY_KEY;
+
+    const list = document.getElementById(
+        isMotivation
+            ? "motivationList"
+            : "spiritualityList"
+    );
+
+    list.innerHTML = "";
+
+    loadItems(key)
+        .filter(Boolean)
+        .forEach(function (text, index) {
+
+            const item = document.createElement("div");
+            item.className = "quote";
+
+            const number = document.createElement("strong");
+            number.textContent = (index + 1) + ". ";
+
+            item.appendChild(number);
+
+            text.split("\n").forEach(function (line, lineIndex) {
+
+                if (lineIndex > 0) {
+                    item.appendChild(
+                        document.createElement("br")
+                    );
+                }
+
+                item.appendChild(
+                    document.createTextNode(line)
+                );
+            });
+
+            list.appendChild(item);
+        });
+}
+
+renderItems("motivation");
+renderItems("spirituality");
+
+/*
+IMPORTANT :
+GitHub Pages est un hébergement statique.
+Le mot de passe ci-dessus protège seulement l'interface
+dans le navigateur et n'est PAS une sécurité serveur.
+Pour que toi seul puisses publier réellement pour tous les
+visiteurs, il faudra ensuite une authentification + base de données.
+*/
+
+</script>
+
+</body>
+
+</html>
